@@ -1,8 +1,17 @@
-.GrupoCaixas {
-  display: inline-flex;
-  width: 80%;
-  padding: 10px;
-  box-shadow: inset 1px 1px 3px #fff;
+.SeparadorEtiqueta {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: inherit; 
+}
+
+.Etiqueta {
+  border: 1px solid black;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.ConjuntosEvenlopes {
+  display: flex;
 }
 
 .Envelope {
