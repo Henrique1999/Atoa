@@ -66,10 +66,34 @@ let HTMLclassEnvelopeConteudo =
 GerarConteudoSite();
 
 // Declarando Funções
-function GerarEspacoEtiqueta(params) {
-  document
-    .getElementById("TodosCards")
-    .insertAdjacentHTML("afterbegin" /* Crie uma função aqui */);
+function GerarEspacoEtiqueta(unidadeEtiqueta) {
+  let StringinsertAdjacentHTML = "";
+  let ResultadoFor = "";
+  for (let index = 0; index < unidadeEtiqueta[1].length; index++) {
+    ResultadoFor += GerarTextoCard(
+      conteudoFixoTeste[unidadeEtiqueta[1][index]]
+    );
+  }
+  return (StringinsertAdjacentHTML += `
+      <div class="SeparadorSite">
+        <div class="SeparadorEtiqueta">
+          <header>
+            <div class="Etiqueta">
+              <span>${unidadeEtiqueta[0]}</span>
+            </div>
+          </header>
+          <div class="ConjuntosEvenlopes">
+            ${ResultadoFor}
+            <div class="Envelope">
+              <div id="Adicione" class="EnvelopeConteudo">
+                <p>Adicione um card</p>
+                <p class="AdicioneCentro">+</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `);
 }
 
 function GerarTextoCard(DadosCardUnico) {
@@ -84,37 +108,11 @@ function GerarTextoCard(DadosCardUnico) {
 }
 function GerarConteudoSite() {
   let StringinsertAdjacentHTML = "";
-
-  etiquetas.forEach((uniEtiqueta) => {
-    let ResultFor = "";
-    for (let index = 0; index < uniEtiqueta[1].length; index++) {
-      ResultFor += GerarTextoCard(conteudoFixoTeste[uniEtiqueta[1][index]]);
-    }
-    return (StringinsertAdjacentHTML += `
-    <div class="SeparadorSite">
-      <div class="SeparadorEtiqueta">
-        <header>
-          <div class="Etiqueta">
-            <span>${uniEtiqueta[0]}</span>
-          </div>
-        </header>
-        <div class="ConjuntosEvenlopes">
-          ${ResultFor}
-          <div class="Envelope">
-            <div id="Adicione" class="EnvelopeConteudo">
-              <p>Adicione um card</p>
-              <p class="AdicioneCentro">+</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  `);
+  etiquetas.forEach((unidadeEtiqueta) => {
+    return (StringinsertAdjacentHTML += GerarEspacoEtiqueta(unidadeEtiqueta));
   });
 
-  document
-    .getElementById("TodosCards")
-    .insertAdjacentHTML("afterbegin", StringinsertAdjacentHTML);
+  HTMLTodosCards.insertAdjacentHTML("afterbegin", StringinsertAdjacentHTML);
 }
 
 //
