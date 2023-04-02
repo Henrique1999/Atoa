@@ -3,7 +3,7 @@
 Está incompleto ainda.<br>
 <i>Completando durante meus tempos livres</i>
 
-<h4>Finalidade:</h4> <br>
+<h4>Finalidade:</h4>
 criar um ambiente de anotações, onde vc pode jogar informações soltas ou mal organizadas e depois organizar elas com as ferramentas que estou criando
 
 
